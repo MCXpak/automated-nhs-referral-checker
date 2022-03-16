@@ -6,6 +6,18 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 chrome_options = Options()
 chrome_options.add_argument("--headless")
+
+'''
+Details text file must contain:
+
+Refernce Number
+Year of Birth
+Access Code
+
+in this order, each in one line. 
+
+If you'd like, you can add the datils straight to the corresponding variable e.g. yearOfBirth.send_keys("1990");
+'''
 details = []
 f = open("C:\\Users\moura\Desktop\Projects\Programming\info\details.txt", "r")
 for x in f:
