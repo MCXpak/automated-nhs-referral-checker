@@ -9,6 +9,11 @@ from selenium.webdriver.support import expected_conditions as EC
 chrome_options = Options()
 chrome_options.add_argument("--headless")
 
+'''
+Using twilio, set your accout_sid and auth_token either as environment variables or put them in a text file like I did 
+(seperately from this repo of course ;) ), and use them as variables.
+
+'''
 sid_token = []
 f = open("C:\\Users\moura\Desktop\Projects\Programming\info\sid_token.txt", "r")
 for x in f:
