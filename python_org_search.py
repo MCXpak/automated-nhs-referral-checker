@@ -1,15 +1,17 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-
+chrome_options = Options()
+chrome_options.add_argument("--headless")
 details = []
 f = open("C:\\Users\moura\Desktop\Projects\Programming\info\details.txt", "r")
 for x in f:
     details.append(x.replace("\n",""))
 
-driver = webdriver.Chrome('./chrome-driver/chromedriver.exe')
+driver = webdriver.Chrome('./chrome-driver/chromedriver.exe', options=chrome_options)
 driver.get("https://refer.nhs.uk/login")
 wait = WebDriverWait(driver, 20)
 
@@ -31,3 +33,4 @@ appointmentStatus = driver.find_element(by=By.NAME, value="msg-no-appointment")
 print(appointmentStatus.text)
 
 assert "No results found." not in driver.page_source
+driver.quit()
